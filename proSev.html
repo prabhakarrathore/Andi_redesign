@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>andisoftwaresolutions - products & services</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style1.css">
+    <link rel="stylesheet" href="../style2.css">
+    <link rel="stylesheet" href="./proSev/proSev.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <special-head></special-head>
+    <special-container></special-container>
+    <h2 class="section-title">Our Products</h2>
+    <main class="proSev-main" id="proSev-grid">
+    </main>
+
+    <special-footer></special-footer>
+    <script>
+        // Array of product/service data
+        const products = [
+            {
+                imgSrc: '../images/product1.jpg',
+                alt: 'Website Development',
+                title: 'Responsive Website Designing & Development',
+                description: 'We develop all types of websites (Static, Dynamic, E-commerce) using creative ideas and the latest technology.'
+            },
+            {
+                imgSrc: '../images/product2.png',
+                alt: 'Software Development',
+                title: 'Software Development',
+                description: 'We conceive, develop, and support software using the latest technologies at economical prices.'
+            },
+            {
+                imgSrc: '../images/product3.jpg',
+                alt: 'Mobile App Development',
+                title: 'Mobile App Development',
+                description: 'We develop Android & iOS apps, including E-commerce and portal applications.'
+            },
+            {
+                imgSrc: '../images/services1.jpg',
+                alt: 'Bulk SMS',
+                title: 'Bulk SMS',
+                description: 'Instant setup API Gateway for SMS, including promotional, transactional, and voice SMS.'
+            },
+            {
+                imgSrc: '../images/services3.jpg',
+                alt: 'Toll-Free Number',
+                title: 'Toll-Free Number',
+                description: 'Get a premium Toll-Free Number with IVR Greeting for seamless customer interaction.'
+            },
+            {
+                imgSrc: '../images/services4.png',
+                alt: 'Short Code Service',
+                title: 'Short Code Service',
+                description: 'Short codes for SMS and MMS with powerful tools to enhance messaging services.'
+            },
+            {
+                imgSrc: '../images/services5.png',
+                alt: 'Missed Call Service',
+                title: 'Missed Call Service',
+                description: 'Reliable missed call alerts service at an economic price with full data security.'
+            },
+            {
+                imgSrc: '../images/1.png',
+                alt: 'WhatsApp Promotion Panel',
+                title: 'WhatsApp Promotion Panel',
+                description: 'Best-in-class WhatsApp panel for business promotion and customer communication.'
+            },
+            {
+                imgSrc: '../images/2.jpg',
+                alt: 'Animation Clips',
+                title: 'Animation Clips',
+                description: 'We create 2D/3D animations with human and robotic voiceovers for business promotion.'
+            },
+            {
+                imgSrc: '../images/54.jpg',
+                alt: 'Advanced Hosting',
+                title: 'Advanced Hosting',
+                description: 'High-speed hosting on advanced servers for a seamless customer experience.'
+            }
+        ];
+
+        // Use the map function to dynamically generate the section content
+        const proSevGrid = document.getElementById('proSev-grid');
+        products.map(service => {
+            const serviceItem = `
+              <section class="proSev-sec" >
+                <article class="art-img">
+                    <img src="${service.imgSrc}" alt="${service.alt}">
+                </article>
+                <article class="art-details">
+                    <h1>${service.title}</h1>
+                    <p>${service.description}</p>
+                    <button type="button" class="btn1">Request Demo/ Get Quote</button>
+                </article>
+                </section>
+            `;
+
+            proSevGrid.innerHTML += serviceItem; // Append the generated service item to the section
+        });
+    </script>
+    <script src="../footer/footer.js"></script>
+    <script src="../container/container.js"></script>
+    <script src="../header/header.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+.client-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.client-logos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 100px;
+    place-items: center center;
+}
+
+.client-logos>img {
+    width: 200px;
+    mix-blend-mode: color;
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>andisoftwaresolutions - home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <special-head></special-head>
+    <special-container></special-container>
+
+    <div class="about-two-col">
+        <div id="page3">
+            <div id="elem-container">
+                <div id="elem1" class="elem">
+                    <h2>About Us</h2>
+                </div>
+                <div id="accordionExample"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <footer class="footer-div">
+        <header class="navbar-bottom">
+            <div class="logo-bottom"><img src="../images/logo.jpg" alt="" srcset=""></div>
+            <div class="manu-bottom">
+                <ul class="menu-bottom-list" id="menu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../proSev/proSev.html">Products & Services</a></li>
+                    <li><a href="../digiMarket/digiMarket.html">Digital Marketing</a></li>
+                    <li><a href="../cloudSoft/cloudSoft.html">Cloud Software</a></li>
+                    <li><a href="#">Our Clients</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="icons">
+                <a href="https://www.facebook.com/Andi-Software-Solutions-100644611294859/" target="_blank">
+                    <i class="fab fa-facebook" style="color: #fff; font-size:1.5rem;"></i>
+                </a>
+                <a href="https://www.instagram.com/andisoftwaresolutions5/?hl=en" target="_blank">
+                    <i class="fab fa-instagram" style="color: #fff; font-size:1.5rem;"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/UC0mfGwSDteVVWqmggE3MtYQ" target="_blank">
+                    <i class="fab fa-youtube" style="color: #fff; font-size:1.5rem;"></i>
+                </a>
+                <a href="https://in.pinterest.com/andisoftwaresolutions/" target="_blank">
+                    <i class="fab fa-pinterest" style="color: #fff; font-size:1.5rem;"></i>
+                </a>
+                <a href="https://andisoftwaresolutions.tumblr.com/" target="_blank">
+                    <i class="fab fa-tumblr" style="color: #fff; font-size:1.5rem;"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/andisoftwaresolutions" target="_blank">
+                    <i class="fab fa-linkedin" style="color: #fff; font-size:1.5rem;"></i>
+                </a>
+                <a href="https://www.reddit.com/user/ANDIsoftsol" target="_blank">
+                    <i class="fab fa-reddit" style="color: #fff; font-size:1.5rem;"></i>
+                </a>
+                <a href="https://www.flickr.com/people/andi_software_solutions/" target="_blank">
+                    <i class="fab fa-flickr" style="color: #fff; font-size:1.5rem;"></i>
+                </a>
+            </div>
+        </header>
+    </footer> -->
+    <special-footer></special-footer>
+
+    <script>
+        // Accordion data
+        const accordionItems = [
+            {
+                title: "ANDi software solutions makes technology and information work for business :",
+                content: "Use our products to grow, protect, and simplify your business processes. Our tools enable our users to attract, keep & further increase their end customers."
+            },
+            {
+                title: "We Help You To Grow",
+                content: "We carefully study markets, trends, and emerging practices for industry & region, and add learnings to make our products help you grow globally."
+            },
+            {
+                title: "We are united by a strong set of values & focused on client impact.",
+                content: "The quality of our team is the foundation of our ability to serve clients. We invest tremendous resources in identifying exceptional people, developing their skills, and creating an environment to deliver the best products."
+            },
+            {
+                title: "We Help Make Change Happen",
+                content: "Our experience, tools, and hands-on support help clients achieve their goals by using our products and services."
+            },
+            {
+                title: "Honesty",
+                content: "This guiding principle has helped us build long-term relationships with our customers and partners worldwide."
+            },
+            {
+                title: "Technical Skills",
+                content: "Our team is proficient in the core technologies we support. We actively participate in industry conferences to bring refined cutting-edge solutions to meet client needs."
+            },
+            {
+                title: "Commitment",
+                content: "We understand that the success of a business fundamentally depends on its people. We put people first and do not rest until our clients are satisfied and delighted."
+            },
+            {
+                title: "Originality",
+                content: "Our team believes in original content and designs. We develop and create content ourselves rather than copying from existing sources."
+            }
+        ];
+
+        // Dynamically generate accordion items
+        const accordionContainer = document.getElementById('accordionExample');
+
+        accordionItems.map((item, index) => {
+            const accordionItem = document.createElement('div');
+            accordionItem.classList.add('elem');
+
+            // Accordion button
+            const button = document.createElement('button');
+            button.classList.add('accordion-button');
+            button.setAttribute('type', 'button');
+            button.setAttribute('data-bs-toggle', 'collapse');
+            button.setAttribute('data-bs-target', `#collapse${index}`);
+            button.setAttribute('aria-expanded', 'true');
+            button.setAttribute('aria-controls', `collapse${index}`);
+            button.innerHTML = item.title;
+
+            // Accordion content
+            const collapseDiv = document.createElement('div');
+            collapseDiv.id = `collapse${index}`;
+            collapseDiv.classList.add('accordion-collapse', 'collapse', 'show');
+            collapseDiv.setAttribute('data-bs-parent', '#accordionExample');
+
+            const bodyDiv = document.createElement('div');
+            bodyDiv.classList.add('accordion-body', 'overlay');
+            bodyDiv.innerHTML = item.content;
+
+            collapseDiv.appendChild(bodyDiv);
+
+            // Append button and content to the accordion item
+            accordionItem.appendChild(button);
+            accordionItem.appendChild(collapseDiv);
+
+            // Append the accordion item to the container
+            accordionContainer.appendChild(accordionItem);
+        });
+    </script>
+    <script src="./footer/footer.js"></script>
+    <script src="./container/container.js"></script>
+    <script src="/header/header.js"></script>
+</body>
+
+</html>

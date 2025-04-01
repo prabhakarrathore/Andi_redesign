@@ -1,0 +1,61 @@
+.proSev-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.proSev-sec {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: #9694FF;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.art-img>img {
+    width: 50%;
+    height: auto;
+    mix-blend-mode: multiply;
+    border-radius: 5px;
+}
+
+.art-img {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.art-details {
+    width: 70%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.art-details>h1 {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin: 0;
+}
+
+.art-details>p {
+    font-size: 1em;
+    margin: 10px 0;
+}
+
+.btn1 {
+    background-color: #4f46e5;
+    color: white;
+    padding: 10px 20px;
+    width: fit-content;
+    align-self: flex-end;
+    border: none;
+    border-radius: 5px;
+    margin-top: 30px;
+    cursor: pointer;
+}

@@ -1,0 +1,58 @@
+/* General Styles */
+.product-container {
+    width: 80%;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Grid Styles */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-item,
+.grid-item-rev {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.grid-item:hover,
+.grid-item-rev:hover {
+    transform: translateY(-5px);
+}
+
+.product-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.details h4 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #444;
+    margin: 10px 0;
+}
+
+pre {
+    font-size: 1rem;
+    color: #666;
+    font-family: Arial, sans-serif;
+}

@@ -1,0 +1,102 @@
+/* General Styles */
+.container-contact {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    width: 90%;
+    background: #f8f8f8;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Map Section */
+.image-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.image-content iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 350px;
+    border: none;
+    border-radius: 10px 0 0 10px;
+}
+
+/* Contact Details Section */
+.text-content {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text-content h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.skeleton-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.skeleton.circle {
+    width: 50px;
+    height: 50px;
+    background: #ddd;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skeleton .icon i {
+    font-size: 20px;
+    color: #333;
+}
+
+.skeleton-text {
+    flex: 1;
+}
+
+.skeleton.line {
+    height: 16px;
+    /* background: #ddd; */
+    border-radius: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.skeleton.line.large {
+    height: 18px;
+    width: 60%;
+}
+
+.skeleton.line.medium {
+    width: 80%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .grid {
+        flex-direction: column;
+    }
+
+    .image-content iframe {
+        border-radius: 10px 10px 0 0;
+    }
+}

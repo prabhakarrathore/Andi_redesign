@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>andisoftwaresolutions - digital Marketing</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style1.css">
+    <link rel="stylesheet" href="../style2.css">
+    <link rel="stylesheet" href="./digiMarket/digiMarket.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <special-head></special-head>
+    <special-container></special-container>
+    <h2 class="section-title">Our Services</h2>
+    <main class="proSev-main" id="proSev-grid">
+    </main>
+    <special-footer></special-footer>
+
+
+    <script>
+        // Array of product/service data
+        const products = [
+            {
+                name: "Digital Marketing",
+                sector: "Business",
+                description: "Digital Marketing is a segment of internet marketing. It helps in the utilization of social networking websites as a marketing tool. Aim of Digital MARKETING is to produce content to the users which they will share with their social network to help a company. It helps in increasing brand exposure and broaden customer reach.",
+                list_price: "INR 25,200 + GST",
+                image: "../images/53.jpg",
+            }
+        ]
+
+        // Use the map function to dynamically generate the section content
+        const proSevGrid = document.getElementById('proSev-grid');
+        products.map(service => {
+            const serviceItem = `
+              <section class="proSev-sec" >
+                <article class="art-img">
+                    <img src="${service.image}" alt="${service.alt}">
+                </article>
+                <article class="art-details">
+                    <h1>${service.name}</h1>
+                    <h2>${service.sector}</h2>
+                    <p>${service.description}</p>
+                    <button type="button" class="btn1">Request Demo / Get Quote</button>
+                </article>
+                </section>
+            `;
+
+            proSevGrid.innerHTML += serviceItem; // Append the generated service item to the section
+        });
+    </script>
+    <script src="../footer/footer.js"></script>
+    <script src="../container/container.js"></script>
+    <script src="../header/header.js"></script>
+</body>
+
+</html>

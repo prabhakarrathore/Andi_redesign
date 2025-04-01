@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>andisoftwaresolutions - cloud software</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style1.css">
+    <link rel="stylesheet" href="../style2.css">
+    <link rel="stylesheet" href="./cloudSoft/cloudSoft.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <special-head></special-head>
+    <special-container></special-container>
+    <h2 class="section-title">Our Cloud software</h2>
+    <main class="proSev-main" id="proSev-grid">
+    </main>
+    <special-footer></special-footer>
+
+    <script>
+        // Array of product/service data
+        const products = [
+            {
+                name: "ANDi AMC",
+                sector: "Business",
+                description: "Suitable for all kind of service providers for managing / record keeping of their annual maintenance contracts online with detailed customer and service database.",
+                list_price: "INR 25,200 + GST",
+                image: "../images/10029.jpg",
+            },
+            {
+                name: "ANDi Barcode",
+                sector: "Business",
+                description: "Easy cloud-based generation and printing of barcodes suitable for any kind of products.",
+                list_price: "INR 7,200 + GST",
+                image: "../images/10030.jpg",
+            },
+            {
+                name: "ANDi Business ERP",
+                sector: "Business",
+                description: "Advanced business ERP to manage multiple businesses & multiple location warehouses efficiently. Includes powerful user and role management module with advanced product management functions, Contacts management module, Purchase, Sales, Expenses, Tax functions, custom invoice, product labels, and detailed report generation.",
+                list_price: "INR 43,200 + GST",
+                image: "../images/10031.jpg"
+            },
+            {
+                name: "ANDi Call Centre",
+                sector: "Business",
+                description: "Advanced call center management portal covering all major activities to run call center operations.",
+                list_price: "INR 32,400 + GST",
+                image: "../images/10032.jpg",
+
+            },
+            {
+                name: "ANDi Courier",
+                sector: "Business",
+                description: "Software designed for courier companies to monitor the logistics of storage and handling of cargo from its booking till final destination efficiently.",
+                list_price: "INR 18,000 + GST",
+                image: "../images/10033.jpg"
+            },
+            {
+                name: "ANDi Crowd Funding",
+                sector: "Business",
+                description: "Software to manage online crowdfunding functions like donation, charity funding, bidding, etc.",
+                list_price: "INR 28,800 + GST",
+                image: "../images/10034.jpg",
+
+            },
+            {
+                name: "ANDi dVC1",
+                sector: "Business",
+                description: "Mini static website or simple online profile maker with details like social icons, contact details, profile, portal, business activities, appointment booking option, and more.",
+                list_price: "INR 27,000 + GST",
+                image: "../images/10035.jpg"
+            },
+            {
+                name: "ANDi dVC2",
+                sector: "Business",
+                description: "Software for making online profiles (dVC card) with photo, location, social media links, and contact details along with integrated features like organic visitor count, product display, and order booking with payment options.",
+                list_price: "INR 36,000 + GST",
+                image: "../images/10036.jpg",
+
+            },
+            {
+                name: "ANDi dVC3",
+                sector: "Business",
+                description: "Basic single-page online profile maker (digital business card) with clickable links for phone numbers, WhatsApp, email, website, and social media links.",
+                list_price: "INR 27,000 + GST",
+                image: "../images/10037.jpg"
+            },
+            {
+                name: "ANDi Garage",
+                sector: "Business",
+                description: "Suitable for auto garage/repair workshops with inventory and reporting system, including roles for employees, customers, and accountants.",
+                list_price: "INR 27,000 + GST",
+                image: "../images/10038.jpg",
+
+            },
+            {
+                name: "ANDi Gym",
+                sector: "Business",
+                description: "Suitable for modern gyms for managing all kinds of gym activities including training and supplement records.",
+                list_price: "INR 21,600 + GST",
+                image: "../images/10039.jpg"
+            },
+            {
+                name: "ANDi HRM",
+                sector: "Business",
+                description: "Suitable for companies/industries for HRM-related activities like employee management, attendance, payroll module, sales, purchase, inventory, and expenses.",
+                list_price: "INR 28,800 + GST",
+                image: "../images/10040.jpg",
+
+            },
+            {
+                name: "ANDi Inventory 1",
+                sector: "Business",
+                description: "Basic inventory management system for pharmaceutical shops, having products, expiry dates, purchase & sales for stock keeping purpose.",
+                list_price: "INR 14,400 + GST",
+                image: "../images/10041.jpg"
+            },
+            {
+                name: "ANDi Inventory 2",
+                sector: "Business",
+                description: "Simple inventory system with order booking & invoice module management - suitable for small shop owners.",
+                list_price: "INR 16,200 + GST",
+                image: "../images/10042.jpg",
+
+            },
+            {
+                name: "ANDi Inventory 3",
+                sector: "Business",
+                description: "Simple Inventory management system for SOHO business. Includes product, purchase, vendor, sale & customer modules with reporting functionality.",
+                list_price: "INR 21,600 + GST",
+                image: "../images/10043.jpg"
+            },
+            {
+                name: "ANDi Inventory 4",
+                sector: "Business",
+                description: "Online inventory system with order management for keeping track of all items - suitable for small shopkeepers with invoicing function.",
+                list_price: "INR 25,200 + GST",
+                image: "../images/10044.jpg",
+
+            },
+            {
+                name: "ANDi Laundry",
+                sector: "Business",
+                description: "Online order booking portal designed for drycleaners. Customers can book orders, select pickup timing, make payment (cash/online), and admin can manage all activities.",
+                list_price: "INR 18,000 + GST",
+                image: "../images/10045.jpg"
+            },
+            {
+                name: "ANDi Leads 1",
+                sector: "Business",
+                description: "Cloud-based online Lead management software for capturing leads, making quotations, assigning tasks, generating sales invoices, etc. Most suitable for organizations with sales teams.",
+                list_price: "INR 23,400 + GST",
+                image: "../images/10046.jpg",
+
+            },
+            {
+                name: "ANDi Leads 2",
+                sector: "Business",
+                description: "A perfect Lead Management portal where admin can create multiple users, products, cities, assign leads, and monitor progress smoothly.",
+                list_price: "INR 18,000 + GST",
+                image: "../images/10047.jpg"
+            },
+            {
+                name: "ANDi Loan",
+                sector: "Business",
+                description: "Suitable for loan provider companies/agents for keeping records of loan processes and notifications of due cases and premium payments.",
+                list_price: "INR 27,000 + GST",
+                image: "../images/10048.jpg",
+
+            },
+            {
+                name: "ANDi Pharmacy",
+                sector: "Business",
+                description: "Suitable for chemist/pharmacy shops for keeping records of medicines and their substitutes.",
+                list_price: "INR 21,600 + GST",
+                image: "../images/10049.jpg"
+            },
+            {
+                name: "ANDi Project",
+                sector: "Business",
+                description: "Suitable for any company for managing client work efficiently. Includes user task assignment, task progress reporting, client review functions, quotation creation, invoicing, and payment reminders.",
+                list_price: "INR 28,800 + GST",
+                image: "../images/10050.jpg",
+
+            },
+            {
+                name: "ANDi Saloon",
+                sector: "Business",
+                description: "Suitable for beauty parlors/saloons to manage daily activities and processes.",
+                list_price: "INR 25,200 + GST",
+                image: "../images/10051.jpg"
+            },
+            {
+                name: "ANDi Bilty",
+                sector: "Business",
+                description: "Simple online portal for transporters to make bilties. Multi-user, multi-location-based cloud portal with income expense tracking.",
+                list_price: "INR 18,000 + GST",
+                image: "../images/10052.jpg",
+
+            },
+            {
+                name: "ANDi Classified",
+                sector: "Business",
+                description: "Advanced classified portal for buying and selling products with ad posting. Buyers and sellers can chat with each other.",
+                list_price: "INR 32,400 + GST",
+                image: "../images/10053.jpg"
+            },
+            {
+                name: "ANDi ECom 1",
+                sector: "Ecommerce",
+                description: "Fully responsive single vendor (SV) Ecom portal with advanced product management function, unlimited product categories & subcategories, product details like catalog, attributes, variations, collections, discounts, and more.",
+                list_price: "INR 36,000 + GST",
+                image: "../images/10054.jpg"
+            },
+            {
+                name: "ANDi ECom 2",
+                sector: "Ecommerce",
+                description: "Advanced Level Single Vendor (SV) Ecom Portal with multi-language display option and inbuilt order management. Editable frontend settings including FAQ and services for easy portal management.",
+                list_price: "INR 39,600 + GST",
+                image: "../images/10055.jpg",
+
+            },
+            {
+                name: "ANDi ECom 4",
+                sector: "Ecommerce",
+                description: "Basic Level Single Vendor (SV) Ecom Portal with user & order management and payment gateway option.",
+                list_price: "INR 25,200 + GST",
+                image: "../images/10056.jpg"
+            },
+            {
+                name: "ANDi ECom 5",
+                sector: "Ecommerce",
+                description: "Professional single vendor (SV) Ecom Portal with a fully responsive design, advanced features like frontend, banner and website color customization by admin, multi-language, multi-currency, multi-payment options, advanced product search, promo codes, and more.",
+                list_price: "INR 45,000 + GST",
+                image: "../images/10057.jpg",
+
+            },
+            {
+                name: "ANDi ECom 5M",
+                sector: "Ecommerce",
+                description: "Professional Multi Vendor (MV) Ecom Portal with responsive design and features such as auto sales commission deduction & reporting to vendors, frontend customization, advanced product management, and multi-language support.",
+                list_price: "INR 63,000 + GST",
+                image: "../images/10057.jpg"
+            },
+            {
+                name: "ANDi ECom 6",
+                sector: "Ecommerce",
+                description: "Professional single vendor (SV) Ecom Portal with advanced product management, category/subcategory display, time-bound order execution features, product rating/comments by users, and staff login panel for managing sub-business activities.",
+                list_price: "INR 50,400 + GST",
+                image: "../images/10058.jpg",
+
+            },
+            {
+                name: "ANDi ECom 7",
+                sector: "Ecommerce",
+                description: "Entry-level single vendor (SV) Ecom portal with product management features. Admin can add multiple products with photo, description, price, and enquiry links. Includes social link integration and frontend color change options.",
+                list_price: "INR 16,200 + GST",
+                image: "../images/10059.jpg"
+            },
+            {
+                name: "ANDi Coaching",
+                sector: "Education",
+                description: "Suitable for coaching institutes for managing student data and complete course management.",
+                list_price: "INR 19,800 + GST",
+                image: "../images/10060.jpg"
+            },
+            {
+                name: "ANDi Institute",
+                sector: "Education",
+                description: "Suitable for small coaching centres, handling enquiries to enrolling students in various courses, managing fees, certificates, progress reports, and more.",
+                list_price: "INR 21,600 + GST",
+                image: "../images/10061.jpg",
+
+            },
+            {
+                name: "ANDi Library",
+                sector: "Education",
+                description: "Solution for libraries to maintain book records and bookkeeping.",
+                list_price: "INR 21,600 + GST",
+                image: "../images/10062.jpg"
+            },
+            {
+                name: "ANDi Class 1",
+                sector: "Education",
+                description: "Multi-language portal suitable for online course selling and teacher location-based functionalities.",
+                list_price: "INR 25,200 + GST",
+                image: "../images/10063.jpg",
+
+            },
+            {
+                name: "ANDi Course",
+                sector: "Education",
+                description: "Suitable for business leaders to sell multiple courses online with student enrollment and payment options.",
+                list_price: "INR 21,600 + GST",
+                image: "../images/10064.jpg"
+            },
+            {
+                name: "ANDi Exam 1",
+                sector: "Education",
+                description: "Advanced software designed for taking exams online.",
+                list_price: "INR 23,400 + GST",
+                image: "../images/10065.jpg",
+
+            },
+            {
+                name: "ANDi Exam 2",
+                sector: "Education",
+                description: "Web portal for taking exams with CMS editing and inbuilt timer.",
+                list_price: "INR 30,600 + GST",
+                image: "../images/10066.jpg"
+            },
+            {
+                name: "ANDi School 1",
+                sector: "Education",
+                description: "Online school management system with multi-language support, parent login, sibling management, transport management, and homework monitoring.",
+                list_price: "INR 27,000 + GST",
+                image: "../images/10067.jpg",
+            },
+            {
+                name: "ANDi School 2",
+                sector: "Education",
+                description: "Simple school management system for student record keeping.",
+                list_price: "INR 23,400 + GST",
+                image: "../images/10068.jpg",
+            },
+            {
+                name: "ANDi School 3",
+                sector: "Education",
+                description: "Manages key school activities such as attendance, timetable, and student records with multiple theme options.",
+                list_price: "INR 27,000 + GST",
+
+                image: "../images/10069.jpg"
+            },
+            {
+                name: "ANDi School 4",
+                sector: "Education",
+                description: "Online school management system with multi-language support and parent login to monitor child activities, sibling management, transport management, and homework monitoring.",
+                list_price: "INR 28,800 + GST",
+                image: "../images/10070.jpg",
+            },
+            {
+                name: "ANDi School 7",
+                sector: "Education",
+                description: "Complete school management system with integrated online exams for students.",
+                list_price: "INR 21,600 + GST",
+                image: "../images/10071.jpg"
+            },
+            {
+                name: "ANDi School 8",
+                sector: "Education",
+                description: "Online school management system with multi-language support, parent login, sibling management, transport management, and homework monitoring.",
+                list_price: "INR 28,800 + GST",
+                image: "../images/10072.jpg",
+            },
+            {
+                name: "ANDi School 10",
+                sector: "Education",
+                description: "Advanced school management with features like attendance, online exams, homework, fee collection, Zoom live classes, library, inventory, transport, and hostel management. Frontpage editable for event, gallery, news, and more.",
+                list_price: "INR 39,600 + GST",
+
+                image: "../images/10073.jpg"
+            },
+            {
+                name: "ANDi School 11",
+                sector: "Education",
+                description: "Advanced multi-school management system with features such as attendance, online exams, homework, fee collection, Zoom live classes, and library, inventory, and hostel management. Best suited for large schools with multiple locations.",
+                list_price: "INR 46,800 + GST",
+                image: "../images/10074.jpg",
+            },
+            {
+                name: "ANDi Hostel",
+                sector: "Education",
+                description: "Suitable for hostels to manage activities like bed allocation, room management, and fees.",
+                list_price: "INR 23,400 + GST",
+
+                image: "../images/10075.jpg"
+            },
+            {
+                name: "ANDi Ticket",
+                sector: "Tours & Travels",
+                description: "For movie ticket booking like PVR, bookmyshow, etc.",
+                list_price: "INR 32,400 + GST",
+                image: "../images/10076.jpg",
+            },
+            {
+                name: "ANDi Transport",
+                sector: "Tours & Travels",
+                description: "Suitable for small travel companies/transporters for vehicle booking, controlling drivers, and managing other business activities.",
+                list_price: "INR 16,200 + GST",
+
+                image: "../images/10077.jpg"
+            },
+            {
+                name: "ANDi Travel",
+                sector: "Tours & Travels",
+                description: "Advanced travel portal suitable for travel agents for hotel booking like goibibo, makemytrip, etc., with separate login for customers, guests, suppliers, managers, and admin.",
+                list_price: "INR 39,600 + GST",
+                image: "../images/10078.jpg",
+            },
+            {
+                name: "ANDi Matrimony 1",
+                sector: "Matrimony",
+                description: "Complete online matrimonial portal with responsive design and multi-language selection option. Candidates can search profiles by requirements after choosing payment plans.",
+                list_price: "INR 45,000 + GST",
+
+                image: "../images/10079.jpg"
+            },
+            {
+                name: "ANDi Matrimony 2",
+                sector: "Matrimony",
+                description: "Matrimonial portal for finding matches based on unique searches like caste, star sign, moon sign, interests, education, hobbies, etc.",
+                list_price: "INR 32,400 + GST",
+                image: "../images/10080.jpg",
+            },
+            {
+                name: "ANDi Jobs 1",
+                sector: "Recruitment",
+                description: "Basic job portal where users can create profiles, make resumes, search for jobs, and apply. Companies can post job openings and recruit candidates.",
+                list_price: "INR 16,200 + GST",
+
+                image: "../images/10081.jpg"
+            },
+            {
+                name: "ANDi Jobs 2",
+                sector: "Recruitment",
+                description: "Smart job portal with an attractive front page—users can create profiles, make resumes, search for jobs, and apply. Companies can post openings and recruit.",
+                list_price: "INR 32,400 + GST",
+                image: "../images/10082.jpg",
+            },
+            {
+                name: "ANDi Jobs 5",
+                sector: "Recruitment",
+                description: "Professional job portal with separate logins for job seekers and companies. Includes job posting, CV uploads, job search, candidate management, and admin-controlled activities.",
+                list_price: "INR 36,000 + GST",
+                image: "../images/10083.jpg",
+
+            },
+            {
+                name: "ANDi Property",
+                sector: "Real Estate",
+                description: "Advanced property portal for small dealers/agents with admin-controlled membership to display, sell, rent, or purchase property online.",
+                list_price: "INR 30,600 + GST",
+                image: "../images/10084.jpg"
+            },
+            {
+                name: "ANDi Election",
+                sector: "Politics",
+                description: "Ultimate solution for election campaign management. Admin can add areas, volunteers, voters, make teams for campaign plans based on SWAT analysis, and manage events and expenses.",
+                list_price: "INR 16,200 + GST",
+                image: "../images/10085.jpg",
+
+            },
+            {
+                name: "ANDi NGO",
+                sector: "NGO",
+                description: "Suitable for NGOs for managing their activities.",
+                list_price: "INR 28,800 + GST",
+                image: "../images/10086.jpg"
+            },
+            {
+                name: "ANDi Hospital 1",
+                sector: "Medical",
+                description: "Advanced hospital management ERP with separate logins for doctors, patients, nurses, admins, receptionists, labs, pharma, TPAs, etc.",
+                list_price: "INR 28,800 + GST",
+                image: "../images/10087.jpg",
+
+            },
+            {
+                name: "ANDi Hospital 2",
+                sector: "Medical",
+                description: "Suitable for clinic management with separate logins for doctors, patients, and administrators.",
+                list_price: "INR 27,000 + GST",
+                image: "../images/10088.jpg"
+            },
+            {
+                name: "ANDi Food Booking",
+                sector: "Food",
+                description: "Suitable for restaurants for food order management for customers.",
+                list_price: "INR 25,200 + GST",
+                image: "../images/10089.jpg",
+
+            },
+            {
+                name: "ANDi Restaurant 1",
+                sector: "Food",
+                description: "Suitable for managing restaurant activities.",
+                list_price: "INR 30,600 + GST",
+                image: "../images/10090.jpg"
+            },
+            {
+                name: "ANDi Restaurant 2",
+                sector: "Food",
+                description: "Suitable for managing multiple restaurant outlets, including revenue tracking and table booking.",
+                list_price: "INR 39,600 + GST",
+                image: "../images/10091.jpg",
+
+            },
+            {
+                name: "ANDi Apartment",
+                sector: "Facility Management",
+                description: "Responsive apartment management system suitable for societies/owners for managing tenants, rent payments, staff, complaints, maintenance, and reporting.",
+                list_price: "INR 23,400 + GST",
+                image: "../images/10092.jpg"
+            },
+            {
+                name: "ANDi Visitor",
+                sector: "Facility Management",
+                description: "Suitable for housing societies or small offices for visitor management.",
+                list_price: "INR 21,600 + GST",
+                image: "../images/10093.jpg",
+
+            },
+            {
+                name: "ANDi Event",
+                sector: "Event Management",
+                description: "Suitable for event organizers to manage their business activities.",
+                list_price: "INR 27,000 + GST",
+                image: "../images/10094.jpg"
+            },
+            {
+                name: "ANDi Banking",
+                sector: "Banking",
+                description: "Powerful and secure banking portal for mini banks or microfinance institutes to manage processes and activities like account statements, credit/debit, and user management.",
+                list_price: "INR 25,200 + GST",
+                image: "../images/10095.jpg",
+
+            },
+            {
+                name: "ANDi Blog",
+                sector: "Creative",
+                description: "Perfect blogging portal with advanced features and smooth functionality.",
+                list_price: "INR 28,800 + GST",
+                image: "../images/10096.jpg"
+            },
+            {
+                name: "ANDi News",
+                sector: "Creative",
+                description: "Advanced online news portal for news or advertising agencies. Includes admin and reporter functionalities to efficiently manage posts, add video links, and more.",
+                list_price: "INR 25,200 + GST",
+                image: "../images/10097.jpg",
+
+            },
+            {
+                name: "ANDi Dating",
+                sector: "Creative",
+                description: "Dating portal for social discovery, enabling users to meet new people and form friendly or romantic connections in real time.",
+                list_price: "INR 28,800 + GST",
+                image: "../images/10099.jpg"
+            }
+        ]
+
+        // Use the map function to dynamically generate the section content
+        const proSevGrid = document.getElementById('proSev-grid');
+        products.map(service => {
+            const serviceItem = `
+              <section class="proSev-sec" >
+                <article class="art-img">
+                    <img src="${service.image}" alt="${service.alt}">
+                </article>
+                <article class="art-details">
+                    <h1>${service.name}</h1>
+                    <h2>${service.sector}</h2>
+                    <p>${service.description}</p>
+                    <button type="button" class="btn1">${service.list_price}</button>
+                </article>
+                </section>
+            `;
+
+            proSevGrid.innerHTML += serviceItem; // Append the generated service item to the section
+        });
+    </script>
+    <script src="../footer/footer.js"></script>
+    <script src="../container/container.js"></script>
+    <script src="../header/header.js"></script>
+</body>
+
+</html>

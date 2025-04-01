@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('./images/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.container>div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+}
+
+div>h1 {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+div>p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#toggleButton {
+    background: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    cursor: pointer;
+}
