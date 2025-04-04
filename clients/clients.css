@@ -15,8 +15,6 @@ body {
 /* Main Content Area */
 .main-content {
     position: relative;
-    min-height: 100vh;
-    /* Use min-height */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -227,7 +225,7 @@ body {
 /* --- Tablet & Desktop Adjustments --- */
 @media (min-width: 768px) {
     .main-content {
-        min-height: 100vh;
+        /* min-height: 100vh; */
         /* Ensure full height */
         padding: 0;
         /* Reset padding if not needed */

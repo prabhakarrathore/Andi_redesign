@@ -21,13 +21,13 @@ class SpecialHead extends HTMLElement {
             <button class="close-btn" data-target="mobile-menu-3">×</button>
         </div>
         <ul class="menu-links">
-          <li><a href="./index.html">Home</a></li>
-                <li><a href="./proSev.html">Products & Services</a></li>
-                <li><a href="./digiMarket.html">Digital Marketing</a></li>
-                <li><a href="./cloudSoft.html">Cloud Software</a></li>
-                <li><a href="./partner.html">Our Partners</a></li>
-                <li><a href="./clients.html">Our Clients</a></li>
-                <li><a href="./contacts.html">Contact Us</a></li>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./proSev.html">Products & Services</a></li>
+        <li><a href="./digiMarket.html">Digital Marketing</a></li>
+        <li><a href="./cloudSoft.html">Cloud Software</a></li>
+        <li><a href="./partner.html">Our Partners</a></li>
+        <li><a href="./clients.html">Our Clients</a></li>
+        <li><a href="./contacts.html">Contact Us</a></li>
         </ul>
         
     </nav>

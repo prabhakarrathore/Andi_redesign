@@ -6,12 +6,13 @@ class SpacielFooter extends HTMLElement {
             <div class="logo-bottom"><img src="../images/logo.jpg" alt="" srcset=""></div>
             <div class="manu-bottom">
                 <ul class="menu-bottom-list" id="menu">
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../proSev/proSev.html">Products & Services</a></li>
-                    <li><a href="../digiMarket/digiMarket.html">Digital Marketing</a></li>
-                    <li><a href="../cloudSoft/cloudSoft.html">Cloud Software</a></li>
-                    <li><a href="#">Our Clients</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="./index.html">Home</a></li>
+        <li><a href="./proSev.html">Products & Services</a></li>
+        <li><a href="./digiMarket.html">Digital Marketing</a></li>
+        <li><a href="./cloudSoft.html">Cloud Software</a></li>
+        <li><a href="./partner.html">Our Partners</a></li>
+        <li><a href="./clients.html">Our Clients</a></li>
+        <li><a href="./contacts.html">Contact Us</a></li>
                 </ul>
             </div>
             <div class="icons">
