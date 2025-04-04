@@ -44,10 +44,10 @@
 }
 
 .accordion-body {
-    padding: 15px;
+    padding: 0px;
     font-size: 0.9rem;
     /* Slightly smaller body text */
-    line-height: 1.6;
+    /* line-height: 1.6; */
     /* Improve readability */
     /* Add a background or border if needed when open */
     /* background-color: #f8f8f8; */
@@ -115,9 +115,9 @@
     align-items: center;
     text-align: center;
     /* Center text inside */
-    font-size: 1rem;
+    font-size: .9rem;
     /* Responsive font size */
-    padding: 20px;
+    padding: 0px 20px;
     /* Adjusted padding */
     font-weight: bold;
     z-index: 3;
@@ -133,6 +133,7 @@
 }
 
 .elem:hover .overlay {
+    /* height: fit-content; */
     top: 0;
 }
 
