@@ -1,41 +1,160 @@
+/* --- Base Styles (Mobile First < 640px) --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100vh;
+    /* Vertical centering */
+    align-items: center;
+    /* Horizontal centering for the child div */
+    min-height: 100vh;
+    /* Use min-height for flexibility */
     background-image: url('./images/bg.jpg');
+    /* Ensure path is correct */
     background-size: cover;
     background-position: center;
     color: white;
+    padding: 20px;
+    /* Add padding for spacing on small screens */
+    text-align: center;
+    /* Center text by default on mobile */
 }
 
-.container>div {
+/* Style the direct child div containing the text content */
+.content-box {
+    /* Renamed for clarity - apply this class to your div inside .container */
     display: flex;
+    /* Keep flex for internal alignment */
     align-items: center;
+    /* Center items horizontally inside this box */
     flex-direction: column;
-    width: 50%;
+    width: 100%;
+    /* Take full width within padding */
+    max-width: 500px;
+    /* Limit max width on mobile */
 }
 
-div>h1 {
-    font-size: 50px;
+.content-box h1 {
+    /* Target h1 specifically inside the content box */
+    font-size: 32px;
+    /* Smaller font size for mobile */
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    /* Slightly reduced margin */
+    line-height: 1.2;
+    /* Improve readability */
 }
 
-div>p {
-    font-size: 20px;
-    margin-bottom: 20px;
+.content-box p {
+    /* Target p specifically inside the content box */
+    font-size: 16px;
+    /* Smaller font size for mobile */
+    margin-bottom: 25px;
+    /* Slightly increased margin before button */
+    max-width: 90%;
+    /* Prevent very long lines */
+    margin-left: auto;
+    /* Center the paragraph block */
+    margin-right: auto;
+    /* Center the paragraph block */
 }
 
 #toggleButton {
     background: white;
     border: none;
-    padding: 8px 12px;
+    padding: 10px 15px;
+    /* Slightly adjusted padding */
     border-radius: 5px;
     font-size: 14px;
     font-weight: bold;
-    display: flex;
+    display: inline-flex;
+    /* Use inline-flex */
     align-items: baseline;
     gap: 5px;
     cursor: pointer;
+    color: #333;
+    /* Set text color for button */
+    text-align: center;
+    transition: background-color 0.2s ease;
+    /* Add hover effect */
+}
+
+#toggleButton:hover {
+    background-color: #f0f0f0;
+    /* Slight hover effect */
+}
+
+
+/* --- Tablet Styles (640px and up) --- */
+@media (min-width: 640px) {
+    .content-box h1 {
+        font-size: 42px;
+        /* Increase font size */
+        margin-bottom: 20px;
+    }
+
+    .content-box p {
+        font-size: 18px;
+        /* Increase font size */
+        max-width: 80%;
+        /* Allow slightly wider lines */
+    }
+
+    #toggleButton {
+        padding: 10px 18px;
+        font-size: 15px;
+    }
+}
+
+
+/* --- Desktop Styles (1024px and up) --- */
+@media (min-width: 1024px) {
+    .container {
+        padding: 40px;
+        /* More padding on desktop */
+        /* Align content box to the left */
+        align-items: flex-start;
+        /* Align child (.content-box) to the start (left) */
+        text-align: left;
+        /* Default text align for container children */
+    }
+
+    .content-box {
+        width: 50%;
+        /* Original width */
+        max-width: 650px;
+        /* Increase max width */
+        align-items: flex-start;
+        /* Align items (h1, p, button) to the left */
+        margin: 0;
+        /* Remove auto margins */
+    }
+
+    .content-box h1 {
+        font-size: 50px;
+        /* Original font size */
+    }
+
+    .content-box p {
+        font-size: 20px;
+        /* Original font size */
+        max-width: 100%;
+        /* Allow full width within the 50% container */
+        margin-left: 0;
+        /* Align paragraph left */
+        margin-right: 0;
+        /* Align paragraph left */
+    }
+
+    #toggleButton {
+        padding: 12px 20px;
+        /* Larger padding */
+        font-size: 16px;
+    }
 }

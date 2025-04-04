@@ -1,62 +1,234 @@
+/* --- Base Styles (Mobile First < 768px) --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Optional: Add base font-family to body */
+/* body { font-family: sans-serif; } */
+
 .proSev-main {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; /* Keep if centering multiple sections */
+    /* align-items: center; /* Keep if centering multiple sections */
     flex-direction: column;
+    width: 100%;
+    /* Ensure main container takes width */
+    padding: 20px 0;
+    /* Add some vertical padding */
+    gap: 20px;
+    /* Add space between multiple proSev-sec items if present */
 }
-
 
 .proSev-sec {
-    height: 100%;
+    /* height: 100%; Remove fixed height */
     display: flex;
-    flex-direction: row;
-    width: 100%;
+    flex-direction: column;
+    /* Stack image and details */
+    width: 90%;
+    /* Use percentage width with max-width */
+    max-width: 500px;
+    /* Prevent getting too wide on large mobile */
+    margin: 0 auto;
+    /* Center the section */
     background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 5px;
-}
-
-.art-img>img {
-    width: 50%;
-    height: auto;
-    mix-blend-mode: multiply;
-    border-radius: 5px;
+    padding: 15px;
+    /* Reduced padding for mobile */
+    border-radius: 8px;
+    /* Slightly larger radius */
+    overflow: hidden;
+    /* Ensure content respects border-radius */
 }
 
 .art-img {
-    width: 30%;
+    width: 100%;
+    /* Full width in stacked layout */
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 15px;
+    /* Space between image and details */
+}
+
+.art-img>img {
+    width: 100%;
+    /* Make image responsive within its container */
+    max-width: 350px;
+    /* Optional: Limit max image size on mobile */
+    height: auto;
+    /* mix-blend-mode: multiply; /* Optional: remove/keep based on mobile design */
+    border-radius: 5px;
+    display: block;
+    /* Remove extra space below image */
 }
 
 .art-details {
-    width: 70%;
-    padding: 20px;
+    width: 100%;
+    /* Full width in stacked layout */
+    padding: 0;
+    /* Remove padding, parent has padding */
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: center;
+    /* Center text on mobile */
 }
 
 .art-details>h1 {
-    font-size: 1.5em;
+    font-size: 1.3em;
+    /* Adjust font size for mobile */
     font-weight: 700;
-    margin: 0;
+    margin: 0 0 8px 0;
+    /* Adjusted margin */
+    line-height: 1.3;
 }
 
 .art-details>p {
-    font-size: 1em;
-    margin: 10px 0;
+    font-size: 0.9rem;
+    /* Adjust font size for mobile */
+    margin: 0 0 15px 0;
+    /* Adjusted margin */
+    line-height: 1.6;
+    color: #555;
+    /* Slightly dimmer text color */
 }
 
 .btn1 {
     background-color: #4f46e5;
     color: white;
-    padding: 10px 20px;
+    padding: 10px 18px;
+    /* Adjusted padding */
     width: fit-content;
-    align-self: flex-end;
+    align-self: center;
+    /* Center button in stacked layout */
     border: none;
     border-radius: 5px;
-    margin-top: 30px;
+    margin-top: 10px;
+    /* Reduced margin */
     cursor: pointer;
+    font-weight: 600;
+    /* Slightly less bold */
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+.btn1:hover {
+    background-color: #4338ca;
+    /* Darker hover state */
+}
+
+
+/* --- Tablet Styles (768px and up) --- */
+@media (min-width: 768px) {
+    .proSev-main {
+        padding: 40px 0;
+        gap: 30px;
+    }
+
+    .proSev-sec {
+        flex-direction: row;
+        /* Side-by-side layout */
+        width: 90%;
+        /* Allow wider section */
+        max-width: 900px;
+        /* Increase max width */
+        padding: 20px;
+        /* Restore padding */
+        align-items: center;
+        /* Vertically center items in row */
+    }
+
+    .art-img {
+        width: 40%;
+        /* Adjust width for side-by-side */
+        margin-bottom: 0;
+        /* Remove bottom margin */
+        margin-right: 20px;
+        /* Add space to the right of the image */
+        justify-content: center;
+        /* Keep centered */
+    }
+
+    .art-img>img {
+        width: 100%;
+        /* Image takes full width of its container */
+        max-width: none;
+        /* Remove mobile max-width */
+        mix-blend-mode: multiply;
+        /* Restore blend mode if desired */
+    }
+
+    .art-details {
+        width: 60%;
+        /* Adjust width for side-by-side */
+        padding: 10px;
+        /* Add some internal padding */
+        text-align: left;
+        /* Align text left */
+        justify-content: center;
+    }
+
+    .art-details>h1 {
+        font-size: 1.5em;
+        /* Restore font size */
+        margin-bottom: 10px;
+    }
+
+    .art-details>p {
+        font-size: 1em;
+        /* Restore font size */
+        margin-bottom: 20px;
+    }
+
+    .btn1 {
+        align-self: flex-end;
+        /* Align button right */
+        margin-top: 20px;
+        /* Restore margin */
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}
+
+
+/* --- Desktop Styles (1024px and up) --- */
+@media (min-width: 1024px) {
+    .proSev-main {
+        padding: 60px 0;
+        gap: 40px;
+    }
+
+    .proSev-sec {
+        max-width: 1100px;
+        /* Further increase max width */
+        padding: 30px;
+    }
+
+    .art-img {
+        width: 35%;
+        /* Adjust image width */
+        margin-right: 30px;
+        /* Increase space */
+    }
+
+    .art-details {
+        width: 65%;
+        /* Adjust details width */
+        padding: 20px;
+    }
+
+    .art-details>h1 {
+        font-size: 1.7em;
+        /* Slightly larger heading */
+    }
+
+    .art-details>p {
+        font-size: 1.05em;
+    }
+
+    .btn1 {
+        margin-top: 30px;
+        /* Restore margin */
+    }
 }

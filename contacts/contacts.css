@@ -1,16 +1,30 @@
-/* General Styles */
+/* --- Base Styles (Mobile First < 768px) --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Optional: Add base font-family */
+/* body { font-family: sans-serif; } */
+
 .container-contact {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px 0;
+    padding: 30px 0;
+    /* Slightly reduced vertical padding */
 }
 
 .grid {
     display: flex;
+    flex-direction: column;
+    /* Stack columns by default */
     flex-wrap: wrap;
-    max-width: 1200px;
+    /* Keep wrap just in case, though column usually prevents it */
+    max-width: 600px;
+    /* Max width for mobile/small tablet */
     width: 90%;
     background: #f8f8f8;
     border-radius: 10px;
@@ -21,82 +35,244 @@
 /* Map Section */
 .image-content {
     flex: 1;
-    min-width: 300px;
+    /* Takes available space */
+    min-width: unset;
+    /* Not needed in column layout */
+    width: 100%;
+    /* Explicitly full width */
 }
 
 .image-content iframe {
     width: 100%;
-    height: 100%;
-    min-height: 350px;
+    height: 280px;
+    /* Adjust height for mobile */
+    /* min-height: unset; /* Use fixed height or aspect-ratio */
     border: none;
-    border-radius: 10px 0 0 10px;
+    border-radius: 10px 10px 0 0;
+    /* Top corners rounded */
+    display: block;
+    /* Remove potential extra space */
 }
 
 /* Contact Details Section */
 .text-content {
     flex: 1;
-    padding: 30px;
+    /* Takes available space */
+    padding: 25px 20px;
+    /* Adjusted padding for mobile */
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .text-content h1 {
-    font-size: 28px;
+    font-size: 1.5rem;
+    /* 24px */
     margin-bottom: 20px;
     color: #333;
+    text-align: center;
+    /* Center heading on mobile */
 }
 
 .skeleton-container {
     display: flex;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
+    gap: 12px;
+    /* Slightly reduced gap */
+    margin-bottom: 18px;
+    /* Adjusted margin */
 }
 
 .skeleton.circle {
-    width: 50px;
-    height: 50px;
-    background: #ddd;
+    width: 45px;
+    /* Slightly smaller circle */
+    height: 45px;
+    background: #eee;
+    /* Lighter background */
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
+    /* Prevent circle from shrinking */
 }
 
 .skeleton .icon i {
-    font-size: 20px;
-    color: #333;
+    font-size: 18px;
+    /* Slightly smaller icon */
+    /* color: #555; */
+    /* Adjust icon color */
 }
 
 .skeleton-text {
     flex: 1;
 }
 
+/* Style for the actual text lines if replacing skeletons */
+.detail-title {
+    /* Example class for the first line */
+    font-weight: 600;
+    /* color: #444; */
+    font-size: 0.95rem;
+    margin-bottom: 3px;
+}
+
+.detail-info {
+    /* Example class for the second line */
+    font-size: 0.9rem;
+    /* color: #666; */
+}
+
+
+/* Skeleton line styles (keep if using placeholders) */
 .skeleton.line {
-    height: 16px;
+    height: 14px;
+    /* Adjusted height */
     /* background: #ddd; */
-    border-radius: 5px;
-    margin-bottom: 5px;
+    /* Restore background if using as placeholder */
+    border-radius: 4px;
+    /* Slightly smaller radius */
+    margin-bottom: 6px;
     width: 100%;
 }
 
+.skeleton.line:last-child {
+    margin-bottom: 0;
+}
+
 .skeleton.line.large {
-    height: 18px;
-    width: 60%;
+    /* Maybe represents title */
+    height: 16px;
+    width: 65%;
 }
 
 .skeleton.line.medium {
-    width: 80%;
+    /* Maybe represents detail */
+    width: 85%;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+
+/* --- Tablet Styles (768px and up) --- */
+@media (min-width: 768px) {
+    .container-contact {
+        padding: 40px 0;
+        /* Restore padding */
+    }
+
     .grid {
-        flex-direction: column;
+        flex-direction: row;
+        /* Side-by-side layout */
+        max-width: 900px;
+        /* Increase max width */
+        width: 90%;
+    }
+
+    .image-content {
+        flex: 1 1 45%;
+        /* Allow shrinking/growing, base width 45% */
+        width: auto;
+        /* Reset width */
     }
 
     .image-content iframe {
-        border-radius: 10px 10px 0 0;
+        height: 100%;
+        /* Fill container height */
+        min-height: 400px;
+        /* Minimum height for map */
+        border-radius: 10px 0 0 10px;
+        /* Left corners rounded */
+    }
+
+    .text-content {
+        flex: 1 1 55%;
+        /* Allow shrinking/growing, base width 55% */
+        padding: 30px 35px;
+        /* Increase padding */
+        text-align: left;
+        /* Align text left */
+    }
+
+    .text-content h1 {
+        font-size: 1.75rem;
+        /* 28px */
+        text-align: left;
+        /* Align heading left */
+    }
+
+    .skeleton-container {
+        gap: 15px;
+        /* Restore gap */
+        margin-bottom: 20px;
+        /* Restore margin */
+    }
+
+    .skeleton.circle {
+        width: 50px;
+        height: 50px;
+    }
+
+    .skeleton .icon i {
+        font-size: 20px;
+    }
+
+    /* Restore skeleton line sizes if used */
+    .skeleton.line {
+        height: 16px;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+
+    .skeleton.line.large {
+        height: 18px;
+        width: 60%;
+    }
+
+    .skeleton.line.medium {
+        width: 80%;
+    }
+}
+
+/* --- Desktop Styles (1024px and up) --- */
+@media (min-width: 1024px) {
+    .container-contact {
+        padding: 50px 0;
+    }
+
+    .grid {
+        max-width: 1100px;
+        /* Increase max width */
+    }
+
+    .image-content {
+        flex-basis: 50%;
+        /* Equal width basis */
+    }
+
+    .image-content iframe {
+        min-height: 450px;
+    }
+
+    .text-content {
+        flex-basis: 50%;
+        /* Equal width basis */
+        padding: 40px 50px;
+        /* Increase padding */
+    }
+
+    .text-content h1 {
+        font-size: 2rem;
+        /* 32px */
+    }
+}
+
+/* --- Larger Desktop Styles (1200px and up) --- */
+@media (min-width: 1200px) {
+    .grid {
+        max-width: 1200px;
+        /* Original max width */
+    }
+
+    .image-content iframe {
+        min-height: 500px;
     }
 }

@@ -1,24 +1,57 @@
+/* --- Base Styles (Mobile First < 768px) --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    /* Consider using a specific font */
+}
+
 .about-two-col {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    /* Stack columns on mobile */
+    gap: 30px;
+    /* Add space between stacked items */
+
+    /* Add padding for spacing */
+}
+
+/* Style the direct children (columns) if needed */
+.about-two-col>div {
+    width: 100%;
+    /* Make columns full width when stacked */
 }
 
 .accordion-button {
     background-color: #3e38da;
-
     font-weight: bold;
     border: none;
-    padding: 15px;
+    padding: 12px 15px;
+    /* Adjusted padding */
     text-align: left;
     width: 100%;
     color: #fff;
     transition: background-color 0.3s;
+    font-size: 1rem;
+    /* Base font size */
+    cursor: pointer;
+}
+
+.accordion-button:hover {
+    background-color: #352fbd;
+    /* Add a hover effect */
 }
 
 .accordion-body {
     padding: 15px;
-    font-size: 14px;
+    font-size: 0.9rem;
+    /* Slightly smaller body text */
+    line-height: 1.6;
+    /* Improve readability */
+    /* Add a background or border if needed when open */
+    /* background-color: #f8f8f8; */
+    /* color: #333; */
 }
 
 #page3 {
@@ -26,48 +59,77 @@
     min-height: 100vh;
     color: #fff;
     width: 100%;
+    padding-top: 20px;
+    /* Add some top padding */
+    padding-bottom: 20px;
+    /* Add some bottom padding */
 }
 
 .elem {
-    height: 150px;
+    /* height: 150px; Remove fixed height */
+    min-height: 100px;
+    /* Use min-height */
     width: 100%;
     position: relative;
-
-    border-bottom: 1px solid #38383864;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    /* Lighter border on dark bg */
     overflow: hidden;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; Align content start */
+    align-items: flex-start;
+    /* Align items to the top/start */
     flex-direction: column;
-    padding: 0 2vw;
+    padding: 20px 15px;
+    /* Adjusted padding */
 }
 
 .elem h2 {
-    font-weight: 900;
-    font-size: 4vw;
+    font-weight: 800;
+    /* Slightly less heavy */
+    font-size: 1.8rem;
+    /* Responsive font size for mobile */
+    margin-bottom: 10px;
+    /* Space below heading */
+    line-height: 1.2;
 }
 
-.elem button {
-    font-size: 2vw;
+/* Target the button specifically if it's not the .btn class */
+.elem button:not(.btn) {
+    /* Example selector */
+    font-size: 1rem;
+    /* Responsive font size */
     position: relative;
-    z-index: 0;
+    z-index: 1;
+    /* Ensure button is above base, below overlay */
+    /* Add specific button styling if needed */
+    /* background: transparent; border: 1px solid white; color: white; padding: 5px 10px; */
 }
 
 .elem .overlay {
     height: 100%;
     width: 100%;
     display: flex;
+    /* Keep flex */
     justify-content: center;
+    /* Center overlay content */
     align-items: center;
-    font-size: 1.8vw;
-    padding: 30px 50px;
+    text-align: center;
+    /* Center text inside */
+    font-size: 1rem;
+    /* Responsive font size */
+    padding: 20px;
+    /* Adjusted padding */
     font-weight: bold;
     z-index: 3;
-    font-style: inherit;
+    /* Above other .elem content */
+    color: #3e38da;
+    /* Text color for overlay */
     background-color: #9694FF;
     position: absolute;
     left: 0;
     top: -100%;
-    transition: all ease 0.25s;
+    transition: top 0.3s ease-in-out;
+    /* Animate only top */
 }
 
 .elem:hover .overlay {
@@ -75,11 +137,161 @@
 }
 
 .btn {
-    background-color: #4f46e5;
-    padding: 10px 20px;
+    /* General button style */
+    background-color: #9694FF;
+    /* Match overlay bg? Or keep #4f46e5 */
+    color: #3e38da;
+    /* Text color to contrast background */
+    padding: 10px 18px;
+    /* Adjusted padding */
     width: fit-content;
     border: none;
     border-radius: 5px;
-    margin-top: 10px;
+    margin-top: 15px;
+    /* Increased margin */
     cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+    z-index: 1;
+    /* Make sure it's clickable */
+    position: relative;
+    /* Needed for z-index */
+}
+
+.btn:hover {
+    background-color: #7f7de8;
+    /* Darker hover state */
+}
+
+
+/* --- Tablet Styles (768px and up) --- */
+@media (min-width: 768px) {
+    .about-two-col {
+        flex-direction: row;
+        /* Side-by-side columns */
+        justify-content: space-between;
+        /* Original spacing */
+        align-items: flex-start;
+        /* Align columns to the top */
+
+        /* Increase padding */
+        gap: 40px;
+        /* Adjust gap for horizontal layout */
+    }
+
+    .accordion-button {
+        padding: 15px 20px;
+        font-size: 1.1rem;
+    }
+
+    .accordion-body {
+        font-size: 1rem;
+        /* Increase body font size */
+    }
+
+    #page3 {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .elem {
+        min-height: 120px;
+        /* Slightly taller minimum */
+        padding: 25px 30px;
+        /* Increase padding */
+        /* justify-content: center; Re-center vertically if desired */
+    }
+
+    .elem h2 {
+        font-size: 2.5rem;
+        /* Increase font size (Adjust as needed) */
+        margin-bottom: 15px;
+    }
+
+    .elem button:not(.btn) {
+        font-size: 1.1rem;
+    }
+
+    .elem .overlay {
+        font-size: 1.2rem;
+        padding: 25px 40px;
+        /* Increase padding */
+    }
+
+    .btn {
+        padding: 12px 22px;
+        font-size: 1rem;
+        margin-top: 20px;
+    }
+}
+
+
+/* --- Desktop Styles (1024px and up) --- */
+@media (min-width: 1024px) {
+    .about-two-col {
+
+        gap: 60px;
+    }
+
+    .accordion-button {
+        padding: 18px 25px;
+        font-size: 1.2rem;
+    }
+
+    #page3 {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .elem {
+        min-height: 150px;
+        /* Restore original min-height */
+        padding: 30px 50px;
+        /* Restore padding */
+    }
+
+    .elem h2 {
+        font-size: 3.5rem;
+        /* Use rem or px instead of vw (e.g., 3.5rem or 56px) */
+        font-weight: 900;
+        /* Restore original weight */
+    }
+
+    .elem button:not(.btn) {
+        font-size: 1.2rem;
+        /* Example size */
+    }
+
+    .elem .overlay {
+        font-size: 1.5rem;
+        /* Example size */
+        padding: 30px 50px;
+        /* Restore padding */
+    }
+
+    .btn {
+        padding: 14px 25px;
+        font-size: 1rem;
+    }
+}
+
+/* --- Larger Desktop Styles (Optional - 1280px and up) --- */
+@media (min-width: 1280px) {
+    .about-two-col {
+
+        gap: 80px;
+    }
+
+    .elem h2 {
+        /* font-size: 4vw; */
+        /* Can use vw here cautiously if desired for large screens */
+        font-size: 4rem;
+        /* Or stick with rem/px */
+    }
+
+    .elem .overlay {
+        /* font-size: 1.8vw; */
+        font-size: 1.8rem;
+    }
 }

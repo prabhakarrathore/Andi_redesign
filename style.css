@@ -1,3 +1,4 @@
+/* --- Base Styles (Mobile First) --- */
 * {
     margin: 0;
     padding: 0;
@@ -5,143 +6,178 @@
     font-family: Arial, sans-serif;
 }
 
+body {
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+}
+
+.bg {
+    background-color: #000000;
+    /* overflow-y: hidden; might be too restrictive, remove if causing issues */
+}
+
 .section-title {
     background-color: #9694FF;
-    font-size: 4em;
+    font-size: 2.2em;
+    /* Smaller base size for mobile */
     text-transform: uppercase;
     font-weight: 700;
-    padding: 20px 50px;
+    padding: 15px 20px;
+    /* Reduced padding for mobile */
     margin: 0;
+    text-align: center;
+    /* Often better on mobile */
 }
 
-/* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------header------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
-.bg {
-    overflow-y: hidden;
-    background-color: #000000;
-}
-
+/* -------------------------------- Header -------------------------------- */
 .navbar {
-    height: 100vh;
+    /* Initial state might be a splash screen */
+    height: 20vh;
     width: 100%;
-    padding: 20px;
+    padding: 15px;
+    /* Adjusted padding */
     display: flex;
-    align-items: self-start;
+    align-items: center;
+    /* Center vertically */
     justify-content: center;
     position: absolute;
-    z-index: 1000;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    /* Slightly lower than mobile menu */
+    transition: height 0.3s ease, background-color 0.3s ease;
+    /* Smooth transition */
 }
 
 .nav-container {
     width: 100%;
-    z-index: inherit;
     max-width: 1300px;
+    /* Consistent max-width */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: relative;
+    /* position: relative; */
+    top: 0px;
+    padding: 0 5px;
+    /* Small horizontal padding */
 }
 
+/* Hide desktop nav links and dropdown trigger by default */
 .nav-links {
-    display: flex;
-    gap: 5px;
-    list-style: none;
-    /* padding: 8px 10px; */
-    border-radius: 5px;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: #f0f0f0;
-    font-weight: bold;
-    padding: 5px 10px;
-}
-
-.logo {
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    text-transform: uppercase;
-}
-
-.logo>img {
-    width: 50px;
-    height: 50px;
-    filter: brightness(1);
-    z-index: 10;
-    border-radius: 50%;
-}
-
-.menu-btn {
-    background: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: bold;
-    display: flex;
-    align-items: baseline;
-    gap: 5px;
-    cursor: pointer;
-}
-
-
-li {
-    list-style: none;
-    text-decoration: none;
-    padding: 5px 20px;
+    display: none;
 }
 
 .menu-container {
-    position: relative;
-    color: black;
-    display: inline-block;
-    z-index: inherit;
+    display: none;
+    /* Hide desktop dropdown trigger */
+}
+
+.logo {
+    font-size: 18px;
+    /* Slightly smaller logo text */
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: #f0f0f0;
+    /* Ensure logo text is visible */
+    z-index: 1001;
+    /* Ensure logo is above potential scrolled background */
+}
+
+.logo>img {
+    width: 40px;
+    /* Smaller logo image */
+    height: 40px;
+    filter: brightness(1);
+    border-radius: 50%;
+    display: block;
+    /* Prevent extra space below image */
+    margin: 0 auto 5px;
+    /* Center image if text is below */
+}
+
+/* Style for the mobile menu toggle button (hamburger) - Add this to your HTML */
+.mobile-menu-toggle {
+    display: block;
+    /* Visible on mobile */
+    background: none;
+    border: none;
+    color: #f0f0f0;
+    font-size: 2em;
+    /* Adjust size as needed */
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+    z-index: 1001;
+    /* Above navbar background */
 }
 
 
+/* Dropdown Menu (Initially hidden, specific styles for desktop later) */
 .menu-list {
     opacity: 0;
     display: none;
     transform: translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
     visibility: hidden;
+    position: absolute;
+    /* Needed for positioning */
+    background-color: white;
+    /* Background needed */
+    border-radius: 4px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    z-index: 1010;
+    /* Above other elements */
+}
+
+#toggleMenu3 {
+    background-color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: none;
 }
 
 .menu-list.show {
-    display: inline;
-    top: 60px;
-    right: -110px;
     opacity: 1;
-    width: max-content;
-    position: absolute;
-    align-items: flex-end;
-    z-index: 1;
     visibility: visible;
+    transform: translateY(0);
+    /* Desktop positioning will be set in media query */
     animation: drop 0.4s ease-out;
 }
 
-
 .menu-list li {
     list-style: none;
-    padding: 10px;
+    padding: 0;
+    /* Remove padding here, add to link */
     cursor: pointer;
+    border-bottom: 1px solid #eee;
+    /* Separator */
 }
 
+.menu-list li:last-child {
+    border-bottom: none;
+}
 
-li a {
+.menu-list li a {
+    display: block;
+    /* Make link fill the li */
+    padding: 12px 18px;
     text-decoration: none;
-    color: black;
+    color: #333;
+    /* Standard dropdown text color */
+    white-space: nowrap;
+    /* Prevent wrapping */
 }
+
+.menu-list li a:hover {
+    background-color: #f4f4f4;
+}
+
 
 @keyframes drop {
     0% {
         opacity: 0;
-        transform: translateY(-50px);
-    }
-
-    50% {
-        opacity: 1;
-        transform: translateY(5px);
+        transform: translateY(-10px);
     }
 
     100% {
@@ -150,65 +186,593 @@ li a {
     }
 }
 
+/* Scrolled state for the navbar */
 .navbar.scrolled {
-    background-color: rgba(0, 0, 0, 0.5);
-    height: 12%;
-    /* Add a background color when scrolled */
+    height: 70px;
+    /* Fixed height when scrolled */
+    background-color: rgba(0, 0, 0, 0.85);
+    /* Darker semi-transparent */
+    position: fixed;
+    /* Stick to top */
+    padding: 0 15px;
+    /* Adjust padding for fixed height */
 }
 
-/* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------footer------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+.navbar.scrolled .nav-container {
+    padding: 0 5px;
+}
 
+
+/* -------------------------------- Footer -------------------------------- */
 .footer-div {
-    height: 100%;
-    padding: 50px;
+    padding: 40px 20px;
+    /* Reduced padding */
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #000000;
     color: #f0f0f0;
+    text-align: center;
 }
 
 .navbar-bottom {
-    background-color: #000000;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-}
-
-.manu-bottom {
-    background-color: #000000;
-
+    width: 100%;
 }
 
 .logo-bottom>img {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    /* Smaller footer logo */
+    height: 60px;
     filter: brightness(1);
-    z-index: 10;
     border-radius: 50%;
-
+    margin-bottom: 20px;
 }
 
 .menu-bottom-list {
     display: flex;
-    padding: 30px;
-    background-color: #000000;
+    flex-direction: column;
+    /* Stack links vertically */
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    /* Space before icons */
+    gap: 15px;
+    /* Space between links */
+}
+
+.menu-bottom-list li {
+    padding: 0;
+}
+
+.menu-bottom-list li a {
+    color: #9aaab6;
+    text-decoration: none;
+    padding: 5px 10px;
+    display: block;
+}
+
+.menu-bottom-list li a:hover {
+    color: #ffffff;
 }
 
 .icons {
-    background-color: #000000;
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 20px;
+    /* Space between icons */
 }
 
-a>i {
-    padding: 30px;
-
-}
-
-li>a {
+.icons a {
     color: #9aaab6;
-    padding: 30px;
+    font-size: 1.5em;
+    /* Adjust icon size */
+    text-decoration: none;
+}
+
+.icons a:hover {
+    color: #ffffff;
+}
+
+/* Remove specific padding from <i> if icons have enough gap */
+.icons a>i {
+    padding: 0;
+    /* Remove default padding if gap is used */
+    display: block;
+    /* Ensures proper sizing */
+}
+
+
+/* --- Mobile Slide-In Menu --- */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    /* Slightly narrower */
+    max-width: 80%;
+    /* Adjust max width */
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 1100;
+    /* Highest z-index */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    visibility: hidden;
+    background-color: #ffffff;
+    /* Default background for menu style 3 */
+    color: #333333;
+}
+
+.mobile-menu.active {
+    transform: translateX(0);
+    visibility: visible;
+}
+
+/* Menu Header */
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-shrink: 0;
+}
+
+/* Use specific logo class if needed, otherwise inherits from global .logo */
+/* .menu-header .logo { ... } */
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 2.2em;
+    /* Slightly smaller close icon */
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 5px;
+    color: #333333;
+    /* Match menu style 3 */
+}
+
+/* Menu Links List */
+.menu-links {
+    list-style: none;
+    padding: 0;
+    /* Reset padding */
+    flex-grow: 1;
+}
+
+.menu-links li {
+    margin-bottom: 10px;
+    /* Space below each link item */
+}
+
+.menu-links a {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    /* Vertical padding for tap target */
+    font-size: 1.3em;
+    /* Adjusted font size */
+    font-weight: 500;
+    color: #333333;
+    /* Match menu style 3 */
+}
+
+.menu-links a:hover {
+    color: #000000;
+}
+
+/* Icons (Keep original styles, maybe adjust size/opacity if needed) */
+.menu-links a.has-icon::after {
+    content: '>';
+    display: inline-block;
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 0.6em;
+    opacity: 0.7;
+    /* Adjusted size */
+}
+
+.menu-links a.has-icon-down::after {
+    content: 'v';
+    display: inline-block;
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+.menu-links a.has-icon-sub::after {
+    content: '>';
+    display: inline-block;
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 0.7em;
+    opacity: 0.7;
+}
+
+/* Social Links */
+.social-links {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(128, 128, 128, 0.2);
+    display: flex;
+    justify-content: space-around;
+    /* Distribute more evenly */
+    flex-shrink: 0;
+}
+
+.social-links a {
+    text-decoration: none;
+    font-size: 0.9em;
+    color: #aaaaaa;
+    /* Match menu style 3 */
+}
+
+.social-links a:hover {
+    color: #333333;
+}
+
+/* --- Tablet Styles --- */
+@media (min-width: 768px) {
+    .section-title {
+        font-size: 3em;
+        padding: 20px 40px;
+        text-align: left;
+        /* Align left on larger screens */
+    }
+
+    .navbar {
+        padding: 20px;
+        /* Restore padding */
+    }
+
+    .navbar.scrolled {
+        height: 80px;
+        /* Slightly taller fixed header */
+        padding: 0 20px;
+    }
+
+    .nav-container {
+        padding: 0 15px;
+        /* More padding */
+    }
+
+    .mobile-menu-toggle {
+        display: none;
+        /* Hide hamburger */
+    }
+
+    .nav-links {
+        display: flex;
+        /* Show desktop links */
+        gap: 10px;
+        /* Space between links */
+        list-style: none;
+        padding: 0;
+        /* Reset padding */
+        margin: 0;
+    }
+
+    .nav-links li {
+        padding: 0;
+        font-size: .8em;
+        /* Reset padding */
+    }
+
+    .nav-links li a {
+        text-decoration: none;
+        color: #f0f0f0;
+        font-weight: bold;
+        padding: 8px 12px;
+        /* Padding for links */
+        border-radius: 4px;
+        transition: background-color 0.2s ease;
+    }
+
+    .nav-links li a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        /* Subtle hover */
+    }
+
+    .menu-container {
+        display: inline-block;
+        /* Show desktop dropdown trigger */
+        position: relative;
+        /* Needed for absolute child */
+        color: #f0f0f0;
+        /* Match link color */
+        margin-left: 10px;
+        /* Space it from other links if needed */
+        /* Add styling for the trigger button/link itself here if needed */
+    }
+
+    /* Position the dropdown list correctly for desktop */
+    .menu-list.show {
+        top: 100%;
+        /* Position below the trigger */
+        right: 0;
+        /* Align to the right of the trigger */
+        margin-top: 10px;
+        /* Small gap */
+        width: max-content;
+        /* Let width fit content */
+        min-width: 180px;
+        /* Minimum width */
+        /* display: block; Not needed if using visibility/opacity */
+    }
+
+    .logo>img {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+        /* Space between logo and text if horizontal */
+        margin-bottom: 0;
+    }
+
+    .logo {
+        display: flex;
+        /* Align image and text horizontally */
+        align-items: center;
+        font-size: 20px;
+    }
+
+    .footer-div {
+        padding: 50px;
+        text-align: left;
+        /* Align text left */
+    }
+
+    .navbar-bottom {
+        flex-direction: column;
+        /* Horizontal layout */
+        justify-content: space-between;
+        /* Space elements */
+        align-items: center;
+        max-width: 1300px;
+        /* Align with header */
+        gap: 20px;
+        margin: 0px auto;
+        /* Center container */
+    }
+
+    .logo-bottom>img {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 0;
+        /* Remove bottom margin */
+    }
+
+    .menu-bottom-list {
+        flex-direction: row;
+        /* Horizontal links */
+        margin-bottom: 0;
+        gap: 25px;
+    }
+
+    .icons {
+        gap: 25px;
+    }
+
+    .icons a {
+        font-size: 1.6em;
+    }
+}
+
+/* --- Laptop & Desktop Styles --- */
+@media (min-width: 1024px) {
+    .section-title {
+        font-size: 4em;
+        /* Restore original size */
+        padding: 20px 50px;
+    }
+
+    .navbar {
+        padding: 20px 40px;
+        /* More horizontal padding */
+    }
+
+    .navbar.scrolled {
+        padding: 0 40px;
+    }
+
+    .nav-container {
+        padding: 0;
+        /* Reset padding if max-width handles spacing */
+    }
+
+    .nav-links {
+        gap: 15px;
+        /* Increase gap slightly */
+    }
+
+    .nav-links li a {
+        padding: 10px 18px;
+        /* More padding */
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .footer-div {
+        padding: 60px 50px;
+    }
+
+    .logo-bottom>img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .menu-bottom-list {
+        gap: 30px;
+    }
+
+    .icons {
+        gap: 30px;
+    }
+
+    .icons a {
+        font-size: 1.7em;
+    }
+}
+
+/* Optional: Larger Desktop Styles */
+@media (min-width: 1280px) {
+    .nav-links {
+        gap: 20px;
+        font-size: 1.3em;
+        /* Even more space */
+    }
+
+    .nav-links li a {
+        padding: 10px 20px;
+    }
+}
+
+
+
+/* Basic Reset & Body Style */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+special-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3e38da;
+}
+
+/* Collage Container - Using CSS Grid */
+.collage-container {
+    display: grid;
+    margin: 100px;
+    /* Define 2 columns: ~40% and ~60% width */
+    grid-template-columns: 2fr 3fr;
+    /* Define 3 rows: heights determined by content */
+    grid-template-rows: auto auto auto;
+    gap: 10px;
+    /* Space between grid items */
+    max-width: 1200px;
+}
+
+/* Styling for individual items */
+.collage-item {
+    overflow: hidden;
+    /* Hide any image overflow */
+    /* height: auto; */
+    background-color: #eee;
+    /* Fallback color */
+}
+
+.collage-item img {
+    display: block;
+    /* Remove extra space below image */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Crop image to fit container without stretching */
+    object-position: center;
+    /* Center the image within its container */
+}
+
+/* Grid Placement for each item */
+
+/* Item 1: Top Left */
+
+/* Item 2: Top Right */
+.item-2 {
+    grid-column: 1 / 3;
+    /* Start col 2, end before col 3 */
+    grid-row: 1 / 2;
+    /* Start row 1, end before row 2 */
+}
+
+/* Item 3: Middle/Bottom Left (Spans 2 rows vertically) */
+.item-3 {
+    grid-column: 1 / 2;
+    /* Start col 1, end before col 2 */
+    grid-row: 2 / span 2;
+    /* Start row 2, span 2 rows (rows 2 & 3) */
+    /* Give it a hint for aspect ratio if needed, works best if row heights are somewhat defined */
+    /* aspect-ratio: 600 / 800;  */
+}
+
+/* Item 4: Middle Right */
+.item-4 {
+    grid-column: 2 / 3;
+    /* Start col 2, end before col 3 */
+    grid-row: 2 / 3;
+    /* Start row 2, end before row 3 */
+    /* aspect-ratio: 800 / 400; */
+}
+
+/* Item 5: Bottom Right */
+.item-5 {
+    grid-column: 2 / 3;
+    /* Start col 2, end before col 3 */
+    grid-row: 3 / 4;
+    /* Start row 3, end before row 4 */
+    /* aspect-ratio: 800 / 400; */
+}
+
+
+/* Responsive Adjustments (Optional: Stack on small screens) */
+@media (max-width: 768px) {
+    special-container {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #3e38da;
+    }
+
+    .collage-container {
+        margin: 60px 20px 20px 10px;
+        /* Switch to a single column layout */
+        grid-template-columns: 1fr;
+        /* Reset rows or define explicitly if needed */
+        grid-template-rows: auto;
+        gap: 15px;
+        /* Adjust gap for stacked view */
+    }
+
+    /* Reset grid placement for all items so they stack naturally */
+    .collage-item {
+        grid-column: auto;
+        /* Let browser handle column */
+        /* grid-row: auto; */
+        /* Let browser handle row */
+        /* You might want specific aspect ratios here for consistency */
+        /* aspect-ratio: 16 / 9; */
+        /* Example: force a widescreen aspect ratio */
+    }
+
+    .collage-item img {
+        object-position: center;
+        object-fit: contain;
+        height: auto;
+        /* Ensure centering */
+    }
+
+    /* Optional: Adjust aspect ratio for specific items if needed */
+    .item-3 {
+        aspect-ratio: 3 / 4;
+        /* More portrait */
+    }
+
 }

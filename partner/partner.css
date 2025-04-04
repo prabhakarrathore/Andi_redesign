@@ -1,58 +1,231 @@
-/* General Styles */
+/* --- Base Styles (Mobile First < 768px) --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Optional: Set base font family */
+body {
+    font-family: Arial, sans-serif;
+    /* Default font */
+    background-color: #f4f4f4;
+    /* Light background for context */
+}
+
+/* Use Inter font if available */
+body.font-inter {
+    font-family: 'Inter', sans-serif;
+}
+
+
+/* Container for the whole section */
 .product-container {
-    width: 80%;
-    margin: 40px auto;
+    width: 90%;
+    /* Wider for mobile */
+    margin: 25px auto;
+    /* Reduced vertical margin */
     text-align: center;
 }
 
+/* Section Title */
 .section-title {
-    font-size: 2rem;
+    font-size: 1.6rem;
+    /* Smaller font size */
     font-weight: bold;
     margin-bottom: 20px;
+    /* Keep margin */
     color: #333;
 }
 
 /* Grid Styles */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    /* Keep auto-fit, adjust min size slightly if needed for very small screens */
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 15px;
+    /* Reduced gap */
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
+    /* Make items stretch to fill row height */
 }
 
+/* Grid Item Styles */
 .grid-item,
 .grid-item-rev {
+    /* Assuming -rev might have different content/order later */
     background: #fff;
-    padding: 30px;
+    padding: 20px;
+    /* Reduced padding */
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    /* Slightly softer shadow */
     text-align: center;
-    transition: transform 0.3s ease-in-out;
+    display: flex;
+    /* Use flex for better internal alignment */
+    flex-direction: column;
+    /* Stack content vertically */
+    align-items: center;
+    /* Center content horizontally */
+    transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+    /* Smooth transition */
 }
 
 .grid-item:hover,
 .grid-item-rev:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    /* Enhance shadow on hover */
 }
 
+/* Product Image */
 .product-img {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    /* Smaller image */
+    height: 80px;
     object-fit: cover;
     border-radius: 50%;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    /* Adjusted margin */
+    flex-shrink: 0;
+    /* Prevent image from shrinking */
+}
+
+/* Details Container */
+.details {
+    flex-grow: 1;
+    /* Allow details to take remaining space */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    /* Ensure details takes width */
 }
 
 .details h4 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    /* Adjusted font size */
     font-weight: bold;
     color: #444;
-    margin: 10px 0;
+    margin: 0 0 10px 0;
+    /* Adjusted margin */
+    line-height: 1.3;
 }
 
-pre {
-    font-size: 1rem;
+/* Use a paragraph for description unless PRE is specifically needed */
+.details p,
+/* Changed from pre for better semantics/styling */
+.details pre {
+    font-size: 0.9rem;
+    /* Adjusted font size */
     color: #666;
-    font-family: Arial, sans-serif;
+    font-family: inherit;
+    /* Inherit body font */
+    line-height: 1.5;
+    margin: 0;
+    /* Styles specific to PRE if you keep using it */
+    white-space: pre-wrap;
+    /* Allows wrapping within pre */
+    word-break: break-word;
+    /* Break long words */
+}
+
+
+/* --- Tablet Styles (768px and up) --- */
+@media (min-width: 768px) {
+    .product-container {
+        width: 85%;
+        /* Slightly narrower */
+        margin: 30px auto;
+        /* Increase margin */
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        /* Increase font size */
+    }
+
+    .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        /* Restore/confirm min size */
+        gap: 20px;
+        /* Restore gap */
+    }
+
+    .grid-item,
+    .grid-item-rev {
+        padding: 25px;
+        /* Increase padding */
+    }
+
+    .product-img {
+        width: 90px;
+        /* Increase image size */
+        height: 90px;
+        margin-bottom: 15px;
+    }
+
+    .details h4 {
+        font-size: 1.15rem;
+        /* Increase font size */
+        margin-bottom: 12px;
+    }
+
+    .details p,
+    .details pre {
+        font-size: 0.95rem;
+        /* Increase font size */
+    }
+}
+
+
+/* --- Desktop Styles (1024px and up) --- */
+@media (min-width: 1024px) {
+    .product-container {
+        width: 80%;
+        /* Original width */
+        max-width: 1200px;
+        /* Add max-width */
+        margin: 40px auto;
+        /* Restore margin */
+    }
+
+    .section-title {
+        font-size: 2rem;
+        /* Restore font size */
+        margin-bottom: 25px;
+        /* Increase margin */
+    }
+
+    .grid-container {
+        gap: 25px;
+        /* Slightly larger gap */
+    }
+
+    .grid-item,
+    .grid-item-rev {
+        padding: 30px;
+        /* Restore padding */
+    }
+
+    .product-img {
+        width: 100px;
+        /* Restore image size */
+        height: 100px;
+        margin-bottom: 20px;
+        /* Increase margin */
+    }
+
+    .details h4 {
+        font-size: 1.2rem;
+        /* Restore font size */
+        margin: 15px 0 10px 0;
+        /* Adjust margin */
+    }
+
+    .details p,
+    .details pre {
+        font-size: 1rem;
+        /* Restore font size */
+    }
 }
